@@ -105,7 +105,7 @@ document.addEventListener('keydown', tryPlay);
 const bgMusic = document.getElementById('bgMusic');
 const allVideos = document.querySelectorAll('.theVideo');
 
-bgMusic.volume = 0.5;
+bgMusic.volume = 0.3;
 
 function isAnyVideoPlaying(){
     return Array.from(allVideos).some(v => !v.paused && !v.ended);
