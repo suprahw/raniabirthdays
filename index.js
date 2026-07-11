@@ -1,4 +1,4 @@
-const birthday = new Date('2026-07-11T00:00:00');
+const birthday = new Date('2026-07-15T00:00:00');
 const ssap = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
 
 let state = 'COUNTING'; // COUNTING, GATE, REVEAL
@@ -105,7 +105,7 @@ document.addEventListener('keydown', tryPlay);
 const bgMusic = document.getElementById('bgMusic');
 const allVideos = document.querySelectorAll('.theVideo');
 
-bgMusic.volume = 0.5;
+bgMusic.volume = 0.3;
 
 function isAnyVideoPlaying(){
     return Array.from(allVideos).some(v => !v.paused && !v.ended);
