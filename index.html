@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="birthday.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&family=Jersey+10&display=swap" rel="stylesheet">
+    <title>Nunggu apa sih?</title>
+    <link rel="icon" type="image/x-icon" href="images/sunflower.png">
+</head>
+<body>
+    <section id="loginScreen">
+        <div id="theCopter"></div>
+        <div id="theCopter1"></div>
+        <div id="theFrame"> 
+            <div id="theBoard">
+                <div id="mainCard">
+                    <div id="countdown">
+                        <span id="days">00</span>
+                        <span class="spaces"> : </span>
+                        <span id="hours">00</span>
+                        <span class="spaces"> : </span>
+                        <span id="mins">00</span>
+                        <span class="spaces"> : </span>
+                        <span id="secs">00</span>
+                    </div>
+
+                    <div id="loginPassword">
+                        <input type="password" id="passInput" placeholder="Password"> 
+                        <button onclick="typeWriter()" id="passSubmit">Submit</button>
+                    </div>
+
+                    <div id="birthdayReveal">
+                        <span id="hbd"></span>
+                    </div>
+                </div>
+
+                <img id="frames" src="images/frame.gif" alt="">   
+                    <!-- polaroid photos -->  
+                    <div class="polaroid pos1">
+                        <div class="pin blue"></div>
+                        <img class="photo" src="images/WA0006.jpg" alt="">
+                    </div>
+                    <div class="polaroid pos2" id="slotVideo1">
+                        <div class="pin blue"></div>
+                        <div class="mediaSlot">
+                            <img class="photo" src="images/WA0009.jpg" alt="">
+                            <video class="theVideo">
+                                <source src="https://www.youtube.com/watch?v=ipOSrQNrp1U&list=RDipOSrQNrp1U&start_radio=1" type="video/mp4">
+                            </video>
+                            <div class="playOverlay" data-video="slotVideo1">▶</div>
+                        </div> 
+                    </div>
+                    <div class="polaroid pos3" id="slotVideo2">
+                        <div class="pin blue"></div>
+                        <div class="mediaSlot">
+                            <img class="photo" src="images/WA0007.jpg" alt="">
+                            <video class="theVideo">
+                                <source src="images/birthdaySong.mp4" type="video/mp4">
+                            </video>
+                            <div class="playOverlay" data-video="slotVideo1">▶</div>
+                        </div>
+                    </div> 
+                    <!-- sticky notes -->  
+                     <div class="sticky pos4">
+                        <div class="pin yelo"></div>
+                        <div class="gridNote">
+                            <p>
+                                have you seen this <br>
+                                birthday girl <br>
+                                somewhere? <br>
+
+                                🤔🤔🤔
+                                ➡️➡️➡️
+                            </p>
+                        </div>
+                    </div>
+                    <div class="sticky pos5" id="envelopeTrigger" onclick="openLetter()">
+                        <div class="pin yelo"></div>
+                        <div class="gridNote">
+                            <p>
+                                🎉🎉🎉🎉
+                                🎉🎉🎉🎉
+                                🎉🎉🎉🎉
+                                🎉🎉🎉🎉
+                                🎉🎉🎉🎉
+                            </p>
+                        </div>
+                        <div class="theEnvelope">
+                            <p>Click me!</p>
+                        </div>
+                       
+                    </div>
+                    <div class="sticky pos6">
+                        <div class="pin yelo"></div>
+                        <div class="gridNote">
+                            <p>
+                                because this <br>
+                                girl right here <br>
+                                is pushin 30 <br>
+                                💀💀💀💀💀
+                                ⬅️⬅️⬅️⬅️⬅️
+                            </p>
+                        </div>
+                    </div> 
+            </div>       
+        </div>
+        <!-- cloud -->
+         <div class="theCloud">
+            <div>
+                <img class="c1 bengiCloud" src="images/cloud_3_bengi.png" alt="">
+                <img class="c2 bengiCloud" src="images/cloud_2_bengi.png" alt="">
+                <img class="c3 bengiCloud" src="images/cloud_3_bengi.png" alt="">
+                <img class="c4 bengiCloud" src="images/cloud_4_bengi.png" alt="">
+                <img class="c5 bengiCloud" src="images/cloud_5_bengi.png" alt="">
+                <img class="c6 bengiCloud" src="images/cloud_6_bengi.png" alt="">
+                <img class="c7 bengiCloud" src="images/cloud_7_bengi.png" alt="">
+                <img class="c8 bengiCloud" src="images/cloud_6_bengi.png" alt="">
+            </div>
+            <div>
+                <img class="c1 soreCloud" src="images/cloud_3_sore.png" alt="">
+                <img class="c2 soreCloud" src="images/cloud_2_sore.png" alt="">
+                <img class="c3 soreCloud" src="images/cloud_3_sore.png" alt="">
+                <img class="c4 soreCloud" src="images/cloud_4_sore.png" alt="">
+                <img class="c5 soreCloud" src="images/cloud_5_sore.png" alt="">
+                <img class="c6 soreCloud" src="images/cloud_6_sore.png" alt="">
+                <img class="c7 soreCloud" src="images/cloud_7_sore.png" alt="">
+                <img class="c8 soreCloud" src="images/cloud_6_sore.png" alt="">
+            </div>
+            <div>
+                <img class="c1 morningCloud" src="images/cloud_3_morning.png" alt="">
+                <img class="c2 morningCloud" src="images/cloud_2_morning.png" alt="">
+                <img class="c3 morningCloud" src="images/cloud_3_morning.png" alt="">
+                <img class="c4 morningCloud" src="images/cloud_4_morning.png" alt="">
+                <img class="c5 morningCloud" src="images/cloud_5_morning.png" alt="">
+                <img class="c6 morningCloud" src="images/cloud_6_morning.png" alt="">
+                <img class="c7 morningCloud" src="images/cloud_7_morning.png" alt="">
+                <img class="c8 morningCloud" src="images/cloud_6_morning.png" alt="">
+            </div>
+        </div>
+       <div id="letterOverlay">
+            <div id="bigEnvelope">
+                <div id="letterContent" class="hidden">
+                    <p id="letterText">
+                        Dear Bila,
+                        <br>
+                        &nbsp &nbsp Hi, it's been a while since i wrote the last letter. Last time i did that to commemorate the same event last year and this year is no different. Tho this time around it's not physically in the palm of your hand, i hope you get the same feeling. If you can just see the look on my face everytime i write one of these you can really tell how longing i am to write one. Okay, let's get to the point. <br>
+                        &nbsp &nbsp 25 years old, eh? not so young anymore, are we? Still feels like yesterday when i sang the 22 song by Taylor Swift while standing in front of your house right past midnight with a birthday cake on my hand. What a memorable night that was. And here we are celebrating your 25th birthday. While i have a lot in store about ways how we are going to celebrate this, but i believe this is as far as i can go. My physical appearance might be restricted to be able to meet you in anytime anyplace we want like we used to, but i hope my mind and thoughts can always be right by your side wherever you are and whatever the conditions you are in. I also hope you can feel the love and energy i poured into making this website live. <br>
+                        &nbsp &nbsp One thing i believe as we grow older is the greater the destination we set our mind to, the greater our journey will be. There will be time when we just wanna survive the day and there will be time we can do whatever we want. I promise you things will only get better from here. From the moment we take a step forward, even just a litte whatever it is, we're stepping closer to a place where we wanna be. <br>
+                        &nbsp &nbsp I know all of these might getting stale to you, but i hope you don't get bored whenever i say slowly start loving yourself, will ya? No requirement needed to make me believe in who you truly are, to make anyone look up for you, to always appreciate you in any moments. Unconditional love and affection do exist in people who genuinely care for you. If anyone hasn't told you how strong, how smart, and how beautiful you are, let me tell you today in your special day i bet you're looking absolutely gorgeous plus not only that as you're turning 25 today, you're also getting stronger and smarter that's for sure. And if you think i'm exaggerating, i'm not. And if you think you don't look as beautiful as i might think, you're wrong. You look as beautiful as usual (or prettier) today.  <br>
+                        &nbsp &nbsp Last but not least, Happiest 25th birthday to the girl who stays pretty whenever life tries to knock her down. Happiest 25th birthday to the strongest girl i've known. A year older on paper, but you can always be forever young, forever gorgeous, forever grateful. <br>  
+                        &nbsp &nbsp &nbsp &nbsp  Sincerely,
+                    </p>
+                    <img id="mySignature" src="images/signature.png" alt="">
+                    <!-- <img id="myStamp" src="images/stamp.png" alt=""> -->
+                    <button id="letterClose">&nbsp X &nbsp </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="cakeSetup">
+            <div class="invisible" id="chatBubble">
+                <p id="chatter"></p>
+                <div class="invisible" id="bubbles"></div>
+            </div>
+
+            <div class="invisible" id="chatBubble1">
+                <p id="chatter1">Blow the candle?</p> 
+                <br>
+                <div>
+                    <button id="enableMic">Allow Mic</button>
+                    <button class="hidden" id="manualBlow">Yes</button>
+                </div>
+                <div class="invisible" id="bubbles1"></div>
+            </div>
+            <div id="himIdle"></div>
+            <div class="invisible" id="himHappy"></div>
+            <div id="herIdle"></div>
+            <div class="invisible" id="herHappy"></div>
+            <img id="bottles1" src="images/wine.png" alt="">
+            <img id="bottles" src="images/wine.png" alt="">
+            <!-- <div id="flames"></div> -->
+            <div class="cakes" id="cakeSlot">
+                <div id="theRealCake"></div>
+                <img id="theCake" src="images/theCake.png" alt="">
+            </div>
+            <img id="theTable" src="images/theTable.png" alt="">
+            <div class="bigDrone"></div>
+        </div>
+        <audio id="bgMusic" autoplay loop>
+            <source src="images/BGM.MP3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    
+        <!-- flying objects-->
+
+        <div id="birdRight"></div>
+        <div id="birdRight1"></div>
+        <div id="birdRight2"></div>
+
+        <div id="patrolDrone"></div>
+        <div id="patrolDrone1"></div>
+
+        <div id="courierDrone"></div>
+        <div id="courierDrone1"></div>
+
+        <div id="scannerDrone"></div>
+        <div id="scannerDrone1"></div>
+
+        <div id="birdLeft"></div>
+        <div id="birdLeft1"></div>
+
+        <div class="theBackground">
+            <div>
+                <img class="awanBengi" src="images/bengiCloud.png" alt="">
+                <img class="bengi" src="images/bengi.png" alt="">
+            </div>
+            <div>
+                <img class="awanSore" src="images/soreCloud.png" alt="">
+                <img class="sore" src="images/sore.png" alt=""> 
+            </div>
+            <div>
+                <img  class="awanMorning" src="images/morningCloud.png" alt="">
+                <img class="morning" src="images/morning.png" alt="">
+            </div>
+        </div> 
+    </section>
+<script src="birthday.js"></script>
+</body>
+</html>
