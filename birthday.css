@@ -602,8 +602,8 @@ input::placeholder{
     width: 500px;
     height: 500px;
     z-index: 10;
-    top: 95%;
-    left: 55.25%;
+    top: 103%;
+    left: 63%;
     transform: translate(-50%,-50%);
 }
 
