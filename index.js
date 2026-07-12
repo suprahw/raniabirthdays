@@ -91,7 +91,7 @@ function typeWriter(){
     };
 };
 
-const music = document.getElementById('bgMusic');
+const bgMusic = document.getElementById('bgMusic');
 const inMusic = document.getElementById('introMusic')
 
 function tryPlay(){
@@ -100,20 +100,19 @@ function tryPlay(){
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
         bgMusic.paused();
-        inMusic.volume = 0.3;
+        inMusic.volume = 0.4;
     } else {
-        music.play().catch(() => {});
+        bgMusic.play().catch(() => {});
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
         inMusic.paused();
-        bgMusic.volume = 0.3;
+        bgMusic.volume = 0.4;
     };
 };
 
 document.addEventListener('click', tryPlay);
 document.addEventListener('keydown', tryPlay);
 
-const bgMusic = document.getElementById('bgMusic');
 const allVideos = document.querySelectorAll('.theVideo');
 
 function isAnyVideoPlaying(){
