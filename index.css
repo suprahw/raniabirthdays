@@ -29,7 +29,7 @@ body{
     width: 580px;
     height: 390px;
     position: absolute;
-    top: 43%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: #c99a6b;
@@ -44,7 +44,7 @@ body{
 
 #theCopter{
     position: absolute;
-    top: -5%;
+    top: -6%;
     left: 59%;
     width: 200px;
     height: 200px;
@@ -58,7 +58,7 @@ body{
 
 #theCopter1{
     position: absolute;
-    top: -5%;
+    top: -6%;
     left: 15%;
     width: 200px;
     height: 200px;
@@ -594,7 +594,7 @@ input::placeholder{
     width: 500px;
     height: 500px;
     z-index: 10;
-    top: 104.5%;
+    top: 104%;
     left: 63%;
     transform: translate(-50%,-50%);
 }
