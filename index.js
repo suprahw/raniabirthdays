@@ -99,15 +99,17 @@ inMusic.loop = true;
 
 function tryPlay(){
     if (state === 'COUNTING') {
-        inMusic.play().catch(() => {});
-        document.removeEventListener('click', tryPlay);
+        inMusic.play().catch(() => {
+            document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
         bgMusic.pause();
+        });
     } else {
-        bgMusic.play().catch(() => {});
-        document.removeEventListener('click', tryPlay);
+        bgMusic.play().catch(() => {
+            document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
         inMusic.pause();
+        });
     }
 }
 
