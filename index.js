@@ -99,14 +99,15 @@ function tryPlay(){
         inMusic.play().catch(() => {});
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
-        bgMusic.volume= 0;
-        inMusic.volume = 0.4;
-    } else {
+        
+    } else if (state !== 'COUNTING') {
         bgMusic.play().catch(() => {});
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
-        inMusic.volume= 0;
-        bgMusic.volume = 0.4;
+        bgMusic.removeAttribute('muted');
+        bgMusic.setAttribute('autoplay', '');
+        bgMusic.setAttribute('loop', '');
+        inMusic.setAttribute('muted', '')
     };
 };
 
