@@ -99,13 +99,13 @@ function tryPlay(){
         inMusic.play().catch(() => {});
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
-        bgMusic.paused();
+        bgMusic.volume= 0;
         inMusic.volume = 0.4;
     } else {
         bgMusic.play().catch(() => {});
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
-        inMusic.paused();
+        inMusic.volume= 0;
         bgMusic.volume = 0.4;
     };
 };
