@@ -594,7 +594,7 @@ input::placeholder{
     width: 500px;
     height: 500px;
     z-index: 10;
-    top: 103%;
+    top: 104.5%;
     left: 63%;
     transform: translate(-50%,-50%);
 }
