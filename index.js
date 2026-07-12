@@ -100,14 +100,14 @@ inMusic.loop = true;
 function tryPlay(){
     if (state === 'COUNTING') {
         inMusic.play().catch(() => {});
+        bgMusic.paused();
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
-        bgMusic.paused();
     } else {
         bgMusic.play().catch(() => {});
+        inMusic.paused();
         document.removeEventListener('click', tryPlay);
         document.removeEventListener('keydown', tryPlay);
-        inMusic.paused();
     }
 }
 
