@@ -98,15 +98,13 @@ function tryPlay(){
     if (state === 'COUNTING') {
         bgMusic.pause();
         inMusic.play().catch(() => {});
-        document.removeEventListener('click', tryPlay);
-        document.removeEventListener('keydown', tryPlay);
     } else {
-         
         inMusic.pause();
         bgMusic.play().catch(() => {});
-        document.removeEventListener('click', tryPlay);
-        document.removeEventListener('keydown', tryPlay);
     }
+    
+    document.removeEventListener('click', tryPlay);
+    document.removeEventListener('keydown', tryPlay);
 }
 
 document.addEventListener('click', tryPlay);
