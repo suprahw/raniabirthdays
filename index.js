@@ -92,13 +92,24 @@ function typeWriter(){
 }
 
 const bgMusic = new Audio('images/BGM.mp3');
-/* const inMusic = new Audio('images/introMusic.mp3'); */
+const inMusic = new Audio('images/introMusic.mp3');
+
+bgMusic.loop = true;
+inMusic.loop = true;
 
 function tryPlay(){
-    bgMusic.play().catch(() => {});
-    document.removeEventListener('click', tryPlay);
-     document.removeEventListener('keydown', tryPlay);
-};
+    if (state === 'COUNTING') {
+        inMusic.play().catch(() => {});
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+        bgMusic.pause();
+    } else {
+        bgMusic.play().catch(() => {});
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+        inMusic.pause();
+    }
+}
 
 document.addEventListener('click', tryPlay);
 document.addEventListener('keydown', tryPlay);
