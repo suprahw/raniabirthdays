@@ -1,4 +1,4 @@
-const birthday = new Date('2026-07-11T00:00:00');
+const birthday = new Date('2026-07-15T00:00:00');
 const ssap = 'a7cf42114ca93dcb83ab3125a50df02e9113c1c910fb66617952e3fb6577fec1';
 
 let state = 'COUNTING'; // COUNTING, GATE, REVEAL
@@ -541,55 +541,6 @@ function removeEvents(){
     } 
     
 }
-
-/* function chatting(callback){
-    document.getElementById('chatBubble').classList.remove('invisible');
-    document.getElementById('bubbles').classList.remove('invisible');
-
-    if (is < chat.length) {
-        document.getElementById('chatter').innerHTML += chat.charAt(is);
-        is++;
-        setTimeout(chatting, speedChat);
-    } else {
-       isFinished();
-    };
-
-}; */
-
-
-/*
-const character = document.getElementById('birdRight');
-const wrapper = document.querySelectorAll('.birdWrapper');
-let positionX = 0;
-const speedss = 3;
-let directions = 1;
-const screenWidth = window.innerWidth;
-
-function moveCharacter(){
-    const wrapperWidth = wrapper.clientWidth;
-    const characterWidth = character.clientWidth;
-
-    positionX += speedss * directions;
-
-    if(positionX + characterWidth >= wrapperWidth && directions === 1){
-        direction = -1;
-        character.classList.add('facingLeft');
-    } else if (positionX <= 0 && directions === -1){
-        directions = 1;
-        character.classList.remove('facingLeft');
-    };
-
-    if (directions === -1) {
-        character.style.transform = 'translateX(${positionX}px) scaleX(-1)';
-    } else {
-        character.style.transform = 'translateX(${positionX}px) scaleX(1)';
-    }
-
-    requestAnimationFrame(moveCharacter);
-};
-
-moveCharacter(); 
-*/
 
 if (new Date() >= birthday) {
     setState('GATE');
