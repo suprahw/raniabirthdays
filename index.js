@@ -60,7 +60,7 @@ document.getElementById('passSubmit').addEventListener('click', async () => {
         setState('REVEAL');
     } else {
         alert('Hayo inget passwordnya ndak?');
-    }
+    };
 });
 
 async function sha256(text) {
@@ -88,24 +88,33 @@ function typeWriter(){
         document.getElementById('hbd').innerHTML += txt.charAt(i);
         i++;
         setTimeout(typeWriter, speed);
-    }
-}
+    };
+};
 
 const music = document.getElementById('bgMusic');
+const inMusic = document.getElementById('introMusic')
 
 function tryPlay(){
-    music.play().catch(() => {});
-    document.removeEventListener('click', tryPlay);
-    document.removeEventListener('keydown', tryPlay);
-}
+    if (state === 'COUNTING') {
+        inMusic.play().catch(() => {});
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+        bgMusic.paused();
+        inMusic.volume = 0.3;
+    } else {
+        music.play().catch(() => {});
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+        inMusic.paused();
+        bgMusic.volume = 0.3;
+    };
+};
 
 document.addEventListener('click', tryPlay);
 document.addEventListener('keydown', tryPlay);
 
 const bgMusic = document.getElementById('bgMusic');
 const allVideos = document.querySelectorAll('.theVideo');
-
-bgMusic.volume = 0.3;
 
 function isAnyVideoPlaying(){
     return Array.from(allVideos).some(v => !v.paused && !v.ended);
