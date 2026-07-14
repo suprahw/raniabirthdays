@@ -1,0 +1,1057 @@
+html{
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    margin: 0;
+}
+
+#loginScreen{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    image-rendering: pixelated; 
+    filter: brightness(67%);
+}
+
+#hbd{
+    font-family: 'Jersey 10', sans-serif;
+    font-size: 1.25rem;
+    color: #ffce70;
+    border-radius: 0;
+}
+
+#theBoard{
+    width: 52.5%;
+    height: 45%;
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #c99a6b;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(90,58,26,.28) 1px, transparent 1px),
+        radial-gradient(circle at 63% 72%, rgba(90,58,26,.22) 1.4px, transparent 1.4px),
+        radial-gradient(circle at 82% 18%, rgba(120,80,40,.3) 1px, transparent 1px),
+        radial-gradient(circle at 38% 86%, rgba(90,58,26,.22) 1px, transparent 1px);
+    background-size: 18px 18px, 24px 24px, 16px 16px, 20px 20px;
+    border: 10px solid #64461a;
+}
+
+#theCopter{
+    position: absolute;
+    top: 3%;
+    left: 56%;
+    width: 175px;
+    height: 175px;
+    background-image: url('images/copterDrone.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    animation: idleCopter .8s steps(4) infinite;
+}
+
+#theCopter1{
+    position: absolute;
+    top: 3%;
+    left: 21%;
+    width: 175px;
+    height: 175px;
+    background-image: url('images/copterDrone.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    animation: idleCopter .8s steps(4) infinite;
+}
+
+@keyframes idleCopter {
+    from {background-position: 0 0;}
+    to {background-position: -700px 0;}
+}
+
+#theFrame{
+    position: absolute;
+    width: 800px;
+    height: 800px;
+}
+
+#frames{
+    position: absolute;
+    width: 149%;
+    height: auto;
+    top: 50.25%;
+    left: 47.25%;
+    transform: translate(-50%, -50%);
+}
+
+.pin{
+    position: absolute; 
+    top: -9px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 13px; height: 13px;
+    background: #c0392b;
+    box-shadow: 0 2px 4px rgba(0,0,0,.45);
+}
+
+#mainCard{
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 18px 20px;
+    z-index: 6;
+}
+
+.mediaSlot{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.mediaSlot .photo,
+.mediaSlot .theVideo{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    transition: opacity .6s steps(6);
+}
+
+.mediaSlot .theVideo{
+    opacity: 0;
+}
+
+.mediaSlot .playOverlay{
+    opacity: 0;
+}
+
+.polaroid.swapped .photo{
+    opacity: 0;
+}
+.polaroid.swapped .theVideo{
+    opacity: 1;
+}
+
+.polaroid.swapped .playOverlay{
+    opacity: 1;
+}
+
+.mediaSlot .playOverlay{
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.25rem;
+} 
+
+.polaroid{
+    position: absolute;
+    width: 85px;
+    background: #fff;
+    padding: 7px 7px 22px;
+    box-shadow: 0 8px 16px rgba(0,0,0,.35);
+}
+
+.photo{
+    width: 100%; 
+    aspect-ratio: 1/1; 
+    object-fit: cover; 
+    display: block;
+}
+
+.sticky{
+    position: absolute; 
+    width: 90px; 
+    height: 90px; 
+    box-shadow: 0 6px 12px rgba(0,0,0,.3);
+    background: white; 
+    padding: 3px;
+}
+
+.sticky .gridNote,
+.sticky .theEnvelope{
+    position: absolute;
+    inset: 0;
+    image-rendering: pixelated;
+    transition: opacity .6s steps(6);
+}
+
+.sticky .gridNote{
+    background: #fdfdfb;
+    background-image: 
+    linear-gradient(#dfe3e0 1px, transparent 1px),
+    linear-gradient(90deg, #dfe3e0 1px, transparent 1px);
+    background-size: 8px 8px;
+}
+
+.theEnvelope{
+    text-align: center;
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    cursor: pointer;
+    background: url('images/letterPOPUP.png') center/contain;
+    background-repeat: no-repeat;
+    background-size: 300% 100%;
+    background-position: center;
+    animation: popUp .8s steps(3) infinite;
+}
+
+@keyframes popUp {
+    from {background-position: 0 0;}
+    to {background-position: -300px 0;}
+}
+
+.sticky.swapped .gridNote{opacity: 0; pointer-events: none;}
+.sticky.swapped .theEnvelope{opacity: 1; pointer-events: auto;}
+
+#letterOverlay{
+    position: absolute;
+    inset: 0;
+    z-index: 14;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: background .5s ease;
+}
+
+#letterOverlay.active {
+    background: rgba(0, 0, 0, 0.65);
+    pointer-events: auto;
+}
+
+#bigEnvelope{
+    width: 200px;
+    height: 200px;
+    background: url(images/letter_opening.png) 0 0 no-repeat;
+    background-size: 600% 100%;
+    image-rendering: pixelated;
+    transform: scale(0.3);
+    opacity: 0;
+    transition: transform .4s ease, opacity .4s ease;
+}
+
+ #letterContent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 190px;
+    height: 250px;
+    padding: 7px;
+    border: 3px solid black;
+    background-color: #ffd9b5;
+    transition: opacity 1s ease-in;
+    overflow-wrap: break-word;
+    z-index: 14;
+} 
+
+#letterContent p {
+    position: absolute;
+    font-size: 0.375rem;
+    text-align: left;
+}
+
+#letterText{
+    margin: 0;
+    padding-right: 5px;
+}
+
+#mySignature{
+    width: 35px;
+    height: auto;
+    position: absolute;
+    top: 87%;
+    left: 5%;
+}
+
+#myStamp{
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 75%;
+    left: 65%;
+}
+
+#letterClose{
+    position: absolute;
+    top: 95%;
+    left: 105%;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    font-size: 0.625rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Jersey 10', sans-serif;
+    color: black;
+    border-radius: 0;
+    border-color: black;
+    background-color: #ffd9b5;
+}
+
+#letterOverlay.active #bigEnvelope{
+    transform: scale(3);
+    opacity: 1;
+}
+
+#bigEnvelope.opening{
+    animation: letterOpen .8s steps(5) forwards;
+}
+
+@keyframes letterOpen{
+    from {background-position: 0 0;}
+    to {background-position: -1000px 0;}
+}
+
+.hidden{
+    display: none;
+}
+
+.bengiCloud, .soreCloud, .morningCloud{
+    position: absolute;
+    image-rendering: pixelated;
+    animation: drift 8s  ease-in-out infinite alternate;
+    transition: opacity .6s steps(6);
+} 
+
+@keyframes drift{
+    from {transform: translateX(0);}
+    to {transform: translateX(25px);}
+}
+
+.morningCloud{
+    opacity: 0;
+}
+
+.soreCloud{
+    opacity: 0;
+}
+
+.theCloud.soreTime .bengiCloud{
+    opacity: 0;
+}
+
+.theCloud.soreTime .soreCloud{
+    opacity: 1;
+}
+
+.theCloud.morningTime .morningCloud{
+    opacity: 1;
+}
+
+.theCloud.morningTime .bengiCloud{
+    opacity: 0;
+}
+
+.c1{
+    width: 100px;
+    height: auto;
+    top: 23%;
+    left: 7%;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.c2{
+    width: 180px;
+    height: auto;
+    top: 20%;
+    left: 77%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.c3{
+    width: 230px;
+    height: auto;
+    top: 64%;
+    left: 64%;
+    animation-delay: 1s;
+    animation-duration: 13s;
+}
+
+.c4{
+    width: 140px;
+    height: auto;
+    top: 40%;
+    left: 22%;
+    animation-delay: 1s;
+    animation-duration: 11s;
+    z-index: -4;
+}
+
+.c5{
+    width: 300px;
+    height: auto;
+    top: 70%;
+    left: 8%;
+    animation-delay: 3s;
+    animation-duration: 12s;
+}
+
+.c6{
+    width: 100px;
+    height: auto;
+    top: 54%;
+    left: 87%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.c7{
+    width: 200px;
+    height: auto;
+    top: 56%;
+    left: 47%;
+    animation-delay: 1s;
+    animation-duration: 11s;
+    z-index: -2;
+}
+
+.c8{
+    width: 250px;
+    height: auto;
+    top: 1%;
+    left: 14%;
+    animation-delay: 2s;
+    animation-duration: 13s;
+    z-index: 2;
+}
+
+p{
+    font-family: 'Jersey 10', sans-serif;
+    font-size: 0.825rem;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+} 
+
+.pos1{
+    top: 61%;
+    left: 44%;
+    transform: rotate(-4deg);
+}
+
+.pos2{
+    top: 9%;
+    left: 8%;
+    transform: rotate(5deg);
+}
+
+.pos3{
+    top: 9%;
+    left: 72%;
+    transform: rotate(-3deg);
+}
+
+.pos4{
+    top: 64%;
+    left: 12%;
+    transform: rotate(-5deg);
+}
+
+.pos5{
+    top: 13%;
+    left: 40%;
+}
+
+.pos6{
+    top: 64%;
+    left: 75%;
+    transform: rotate(4deg);
+}
+
+.blue{
+    background: #2f6fa8;
+}
+
+.yelo{
+    background: #ffbc3a;
+}
+
+#countdown{
+    font-size: 3.125rem;
+    font-family: 'Bitcount', sans-serif;
+    color: #ffce70;
+}
+
+#loginPassword{
+    gap: 10px;
+    z-index: 2;
+}
+
+#passInput{
+    border: 3px inset #ffbc3a;
+    background-color: white;
+    padding: 10px 25px 10px 25px;
+}
+
+input::placeholder{
+    text-align: center;
+    font-family: 'Jersey 10', sans-serif;
+    font-size: 1.125rem;
+}
+
+#passSubmit{
+    padding: 10px 40px 10px 40px;
+    font-family: 'Jersey 10', sans-serif;
+    font-size: 1.125rem;
+    border-radius: 0;
+    background-color: transparent;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+
+#passSubmit:hover{
+    color: white;
+    background-color: #ffbc3a;
+}
+
+.theBackground{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    z-index: -10;
+}
+
+.theBackground .morning, 
+.theBackground .sore,
+.theBackground .bengi{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    transition: opacity .6s steps(6);
+    z-index: -10;
+    margin: 0;
+}
+
+.awanSore, .awanMorning, .awanBengi{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    transition: opacity .6s steps(6);
+    z-index: -8;
+    margin: 0;
+}
+
+.theBackground .morning, 
+.theBackground .awanMorning{
+    opacity: 0;
+}
+
+.theBackground .sore, 
+.theBackground .awanSore{
+    opacity: 0;
+}
+
+.theBackground.soreTime .bengi,
+.theBackground.soreTime .awanBengi{
+    opacity: 0;
+}
+
+.theBackground.soreTime .sore,
+.theBackground.soreTime .awanSore{
+    opacity: 1;
+}
+
+.theBackground.morningTime .morning, 
+.theBackground.morningTime .awanMorning{
+    opacity: 1;
+}
+
+.theBackground.morningTime .bengi, 
+.theBackground.morningTime .awanBengi{
+    opacity: 0;
+}
+
+#cakeSetup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+    top: 76%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#herIdle{
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    top: 34%;
+    left: 22%;
+    background-image: url('images/herIdle.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    animation: idleHer 2s steps(4) infinite;
+}
+
+#herHappy{
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    top: 34%;
+    left: 22%;
+    background-image: url('images/herHappy.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    animation: idleHer 2s steps(4) infinite;
+}
+
+@keyframes idleHer {
+    from {background-position: 0 0;}
+    to {background-position: -340px 0;}
+}
+
+#himIdle{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 31%;
+    left: 57%;
+    background-image: url('images/himIdle.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    animation: idleHim 2s steps(4) infinite;
+}
+
+#himHappy{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 31%;
+    left: 57%;
+    background-image: url('images/himhappy.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    animation: idleHim 2s steps(4) infinite;
+}
+
+@keyframes idleHim {
+    from {background-position: 0 0;}
+    to {background-position: -400px 0;}
+}
+#chatBubble{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    top: 23%;
+    left: 79%;
+    transform: translate(-50%, -50%);
+    overflow-wrap: break-word;
+    transition: opacity 1s ease;
+}
+
+#chatBubble1{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    top: 21%;
+    left: 21%;
+    transform: translate(-50%, -50%);
+    overflow-wrap: break-word;
+    transition: opacity 1s ease;
+}
+
+#enableMic{
+    position: absolute;
+    pointer-events: auto;
+    top: 72%;
+    left: 25%;
+    width: 50px;
+    height: 20px;
+    font-size: 0.625rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Jersey 10', sans-serif;
+    color: black;
+    border-radius: 0;
+    border-color: black;
+    background-color: white;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#manualBlow{
+    position: absolute;
+    pointer-events: auto;
+    top: 72%;
+    left: 25%;
+    width: 50px;
+    height: 20px;
+    font-size: 0.625rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Jersey 10', sans-serif;
+    color: black;
+    border-radius: 0;
+    border-color: black;
+    background-color: white;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#chatBubble p{
+    font-size: 0.8125rem;
+    text-align: center;
+    margin: 0;
+    z-index: 5;
+}
+
+#chatBubble1 p{
+    font-size: 0.8125rem;
+    text-align: center;
+    margin: 0;
+    z-index: 5;
+}
+
+#bubbles{
+    position: absolute;
+    top: -86%;
+    width: 150px;
+    height: 150px;
+    background-image: url('images/bubbleChat.png');
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    image-rendering: pixelated;
+    transition: opacity 1s ease;
+}
+
+#bubbles1{
+    position: absolute;
+    top: -60%;
+    width: 150px;
+    height: 150px;
+    background-image: url('images/bubbleChat1.png');
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    image-rendering: pixelated;
+    transition: opacity 1s ease;
+}
+
+#theTable{
+    position: absolute;
+    width: 85px;
+    height: auto;
+    top: 39%;
+    left: 40.75%;
+}
+
+#bottles{
+    position: absolute;
+    width: 60px;
+    height: auto;
+    top: 34%;
+    left: 37%;
+    z-index: 11;
+}
+
+#bottles1{
+    position: absolute;
+    width: 60px;
+    height: auto;
+    top: 34%;
+    left: 50.5%;
+    z-index: 11;
+}
+
+/* #flames{
+    width: 7px;
+    height: 13px;
+    background: #f2a623;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker .4s infinite;
+    transform: opacity .4s ease, transform .4s ease;
+} 
+
+@keyframes flicker {
+    0%, 100%    {opacity: 1; transform: scale(1);}
+    50%         {opacity: .7; transform: scale(.9);}
+} */
+
+#theCake{
+    position: absolute;
+    width: 85px;
+    height: auto;
+    top: 25%;
+    left: 40.75%;
+}
+
+#theRealCake{
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    top: 25%;
+    left: 40.75%;
+    background-image: url('images/theCake-sprite.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 600% 100%;
+    image-rendering: pixelated;
+    animation: candleLit .8s steps(6) infinite;
+    opacity: 0;
+}
+
+.cakes.swapped #theCake{
+    opacity: 0;
+}
+
+.cakes.swapped #theRealCake{
+    opacity: 1;
+}
+
+@keyframes candleLit {
+    from {background-position: 0 0;}
+    to {background-position: -510px 0;}
+}
+
+.bigDrone{
+    position: absolute;
+    top: 29%;
+    left: 20%;
+    width: 250px;
+    height: 250px;
+    background-image: url('images/bigDrone.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    animation: idleBigDrone .8s steps(4) infinite;
+}
+
+@keyframes idleBigDrone {
+    from {background-position: 0 0;}
+    to {background-position: -1000px 0;}
+}
+
+/*
+.birdWrapper{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+} */
+
+#birdRight{
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    width: 100px;
+    height: 250px;
+    background-image: url('images/Black_grouse_Flight.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 600% 100%;
+    image-rendering: pixelated;
+    z-index: -2;
+    animation: runCycle 0.6s steps(6) infinite;
+}
+
+#birdRight1{
+    position: absolute;
+    top: 250px;
+    left: 0px;
+    width: 100px;
+    height: 250px;
+    background-image: url('images/Black_grouse_Flight.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 600% 100%;
+    image-rendering: pixelated;
+    z-index: -2;
+    animation: runCycle 0.6s steps(6) infinite;
+}
+
+#birdRight2{
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 100px;
+    height: 250px;
+    background-image: url('images/Black_grouse_Flight.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 600% 100%;
+    image-rendering: pixelated;
+    z-index: -2;
+    animation: runCycle 0.6s steps(6) infinite;
+}
+
+#birdLeft{
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 100px;
+    height: 250px;
+    background-image: url('images/Black_grouse_Flight_left.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 600% 100%;
+    image-rendering: pixelated;
+    z-index: -2;
+    animation: runCycle 0.6s steps(6) infinite;
+}
+
+#birdLeft1{
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    width: 100px;
+    height: 250px;
+    background-image: url('images/Black_grouse_Flight_left.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 600% 100%;
+    image-rendering: pixelated;
+    z-index: 3;
+    animation: runCycle 0.6s steps(6) infinite;
+}
+
+@keyframes runCycle {
+    from {background-position: 0 0;}
+    to {background-position: -600px 0;}
+}
+
+#patrolDrone{
+    position: absolute;
+    top: 65%;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/patrolDrone_left.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    z-index: 3;
+    animation: hovering .8s steps(4) infinite;
+}
+
+#patrolDrone1{
+    position: absolute;
+    top: 60%;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/patrolDrone_left.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    z-index: 3;
+    animation: hovering .8s steps(4) infinite;
+}
+
+#courierDrone{
+    position: absolute;
+    top: 46%;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/courierDrone.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    z-index: 3;
+    animation: hovering .8s steps(4) infinite;
+}
+
+#courierDrone1{
+    position: absolute;
+    top: 43%;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/courierDrone.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 400% 100%;
+    image-rendering: pixelated;
+    z-index: 3;
+    animation: hovering .8s steps(4) infinite;
+}
+
+#scannerDrone{
+    position: absolute;
+    top: 40%;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/scannerDrone.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 800% 100%;
+    image-rendering: pixelated;
+    z-index: -3;
+    animation: scanner .8s steps(8) infinite;
+}
+
+#scannerDrone1{
+    position: absolute;
+    top: 37%;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/scannerDrone.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 800% 100%;
+    image-rendering: pixelated;
+    z-index: 3;
+    animation: scanner .8s steps(8) infinite;
+}
+
+@keyframes scanner {
+    from {background-position: 0 0;}
+    to {background-position: -800px 0;}
+}
+
+@keyframes hovering {
+    from {background-position: 0 0;}
+    to {background-position: -400px 0;}
+}
+
+.invisible{
+    opacity: 0;
+}
