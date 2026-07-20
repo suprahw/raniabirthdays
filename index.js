@@ -79,14 +79,16 @@ function revealVideosandEnvelope(){
     document.getElementById('envelopeTrigger').classList.add('swapped');
 };
 
+var i = 0;
 var txt = 'HAPPIEST 25TH BIRTHDAY!';
 var speed = 90;
 
 function typeWriter(){
-    for ( i = 0; i < txt.length; i++) {
+    if (i < txt.length) {
         document.getElementById('hbd').innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
     }
-    setTimeout(typeWriter, speed);
 }
 
 const bgMusic = document.getElementById('bgMusic');
