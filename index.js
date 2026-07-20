@@ -457,7 +457,7 @@ document.getElementById('letterClose').addEventListener('click', function chatti
     document.getElementById('chatBubble').classList.remove('invisible');
     document.getElementById('bubbles').classList.remove('invisible');
 
-    for (is = 0; is < chat.length; is++) {
+    for (i = 0; i < chat.length; i++) {
         document.getElementById('chatter').innerHTML += chat.charAt(is);
         setTimeout(chatting, speedChat);
     } else {
