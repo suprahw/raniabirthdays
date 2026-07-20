@@ -79,14 +79,12 @@ function revealVideosandEnvelope(){
     document.getElementById('envelopeTrigger').classList.add('swapped');
 };
 
-var i = 0;
 var txt = 'HAPPIEST 25TH BIRTHDAY!';
 var speed = 90;
 
 function typeWriter(){
-    if (i < txt.length) {
+    for ( i = 0; i < txt.length; i++) {
         document.getElementById('hbd').innerHTML += txt.charAt(i);
-        i++;
         setTimeout(typeWriter, speed);
     }
 }
@@ -451,7 +449,6 @@ function moveBirdLeft1(){
 
 setTimeout(moveBirdLeft1, 61500);
 
-var is = 0;
 var chat = 'Make some wishes before you blow out the candle!';
 var speedChat = 90;
 
@@ -460,9 +457,8 @@ document.getElementById('letterClose').addEventListener('click', function chatti
     document.getElementById('chatBubble').classList.remove('invisible');
     document.getElementById('bubbles').classList.remove('invisible');
 
-    if (is < chat.length) {
+    for (is = 0; is < chat.length; is++) {
         document.getElementById('chatter').innerHTML += chat.charAt(is);
-        is++;
         setTimeout(chatting, speedChat);
     } else {
        isFinished();
