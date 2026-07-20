@@ -85,8 +85,8 @@ var speed = 90;
 function typeWriter(){
     for ( i = 0; i < txt.length; i++) {
         document.getElementById('hbd').innerHTML += txt.charAt(i);
-        setTimeout(typeWriter, speed);
     }
+    setTimeout(typeWriter, speed);
 }
 
 const bgMusic = document.getElementById('bgMusic');
