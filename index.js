@@ -487,7 +487,7 @@ async function blowDetection() {
         analyser.fftSize = 512;
         source.connect(analyser);
 
-        const data = new Uint16Array(analyser.frequencyBinCount);
+        const data = new Uint8Array(analyser.frequencyBinCount);
         let loudFrames = 0;
 
         function checkVolume(){
