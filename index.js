@@ -6,7 +6,7 @@ let state = 'COUNTING'; // COUNTING, GATE, REVEAL
 function setState (next){
     const previousState = state;
     state = next;
-
+    
     if (previousState === 'REVEAL' && next !== 'REVEAL') {
         allVideos?.forEach(video => video.pause());
     }
