@@ -101,7 +101,7 @@ const bgMusic = document.getElementById('bgMusic');
 const inMusic = document.getElementById('introMusic');
 
 function playBackgroundMusic(){
-    inMusic.paused();
+    inMusic.pause();
     bgMusic.play().catch(() => {});
 }
 
