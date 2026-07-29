@@ -4,10 +4,9 @@ const ssap = 'ede081d4e2343f40f31f01534d2cb1843c5a2a4f95b04cb124de0eb37994ed16';
 let state = 'COUNTING'; // COUNTING, GATE, REVEAL
 
 function setState (next){
-    const previousState = state;
     state = next;
     
-    if (previousState === 'REVEAL' && next !== 'REVEAL') {
+    if (next !== 'REVEAL') {
         allVideos?.forEach(video => video.pause());
     }
     
