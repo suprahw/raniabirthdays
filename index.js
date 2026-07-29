@@ -22,7 +22,6 @@ function setState (next){
         document.querySelector('.theBackground').classList.add('soreTime');
         document.querySelector('.theCloud').classList.add('soreTime');
         document.getElementById('cakeSlot').classList.add('swapped');
-        console.log(next);
         playBackgroundMusic();
         document.title = '🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉'
     } else  if (next === 'REVEAL') {
