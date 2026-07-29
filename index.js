@@ -4,8 +4,13 @@ const ssap = 'ede081d4e2343f40f31f01534d2cb1843c5a2a4f95b04cb124de0eb37994ed16';
 let state = 'COUNTING'; // COUNTING, GATE, REVEAL
 
 function setState (next){
+    const previousState = state;
     state = next;
 
+    if (previousState === 'REVEAL' && next !== 'REVEAL') {
+        allVideos?.forEach(video => video.pause());
+    }
+    
     document.getElementById('countdown').style.display = 'none';
     document.getElementById('loginPassword').style.display = 'none';
     document.getElementById('birthdayReveal').style.display = 'none';
@@ -18,6 +23,7 @@ function setState (next){
         document.querySelector('.theBackground').classList.add('soreTime');
         document.querySelector('.theCloud').classList.add('soreTime');
         document.getElementById('cakeSlot').classList.add('swapped');
+        playBackgroundMusic();
         document.title = '🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉25!🎉'
     } else  if (next === 'REVEAL') {
         document.getElementById('birthdayReveal').style.display = 'flex';
@@ -94,13 +100,17 @@ function typeWriter(){
 const bgMusic = document.getElementById('bgMusic');
 const inMusic = document.getElementById('introMusic');
 
+function playBackgroundMusic(){
+    inMusic.paused();
+    bgMusic.play().catch(() => {});
+}
+
 function tryPlay(){
     if (state === 'COUNTING') {
         bgMusic.pause();
         inMusic.play().catch(() => {});
     } else {
-        inMusic.pause();
-        bgMusic.play().catch(() => {});
+       playBackgroundMusic();
     }
     
     document.removeEventListener('click', tryPlay);
@@ -121,8 +131,10 @@ document.querySelectorAll('.mediaSlot').forEach(slot => {
         const btn = slot.querySelector('.playOverlay');
 
         function togglePlay(){
+            if (state !== 'REVEAL') return;
+            
             if (video.paused){
-                video.play();
+                video.play().catch(() => {});
                 btn.style.display = 'none'
             } else {
                 video.pause();
@@ -139,7 +151,7 @@ document.querySelectorAll('.mediaSlot').forEach(slot => {
 
         video.addEventListener('pause', () => {
             if (!isAnyVideoPlaying()) {
-                bgMusic.play().catch(() => {});
+                playBackgroundMusic();
             }
         });
 
